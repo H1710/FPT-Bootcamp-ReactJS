@@ -1,0 +1,2 @@
+Triền khai giao diện đại diện cho ứng dụng
+Các component con sẽ đc triển khai theo cấp cha con

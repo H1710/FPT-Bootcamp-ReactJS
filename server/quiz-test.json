@@ -1,0 +1,183 @@
+{
+  "quizCode": 13573074,
+  "title": "Mr",
+  "description": null,
+  "lsQuizz": [
+    {
+      "content": "Mauris ullamcorper purus sit amet nulla.",
+      "isMutiple": false,
+      "answer": [
+        { "content": "Carvedilol", "isCorrect": false, "id": 52667503 },
+        { "content": "Galantamine", "isCorrect": false, "id": 56532921 },
+        { "content": "simvastatin", "isCorrect": false, "id": 22082504 },
+        {
+          "content": "Diphenhydramine HCl",
+          "isCorrect": true,
+          "id": 63434619
+        }
+      ]
+    },
+    {
+      "content": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+      "isMutiple": false,
+      "answer": [
+        {
+          "content": "Bisoprolol Fumarate",
+          "isCorrect": false,
+          "id": 12696336
+        },
+        {
+          "content": "HYDROCODONE BITARTRATE AND ACETAMINOPHEN",
+          "isCorrect": false,
+          "id": 53138259
+        },
+        {
+          "content": "Quetiapine Fumarate",
+          "isCorrect": false,
+          "id": 81223319
+        },
+        {
+          "content": "Arsenicum album 8X, Lycopodium clavatum 30X, Natrum sulphuricum 12X, Phosphoricum acidum 12X, Secale cornutum 4X",
+          "isCorrect": true,
+          "id": 50567281
+        }
+      ]
+    },
+    {
+      "content": "In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+      "isMutiple": false,
+      "answer": [
+        {
+          "content": "CAMPHOR (NATURAL), MENTHOL,METHYL SALICYLATE",
+          "isCorrect": false,
+          "id": 23789985
+        },
+        { "content": "hydrocortisone", "isCorrect": true, "id": 39400880 },
+        { "content": "Ibuprofen", "isCorrect": false, "id": 46256126 },
+        {
+          "content": "Camphor,Menthol, methyl salicylate",
+          "isCorrect": false,
+          "id": 37876680
+        }
+      ]
+    },
+    {
+      "content": "In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+      "isMutiple": true,
+      "answer": [
+        { "content": "acetaminophen", "isCorrect": true, "id": 35944834 },
+        { "content": "Methocarbamol", "isCorrect": true, "id": 33241386 },
+        { "content": "Ibuprofen", "isCorrect": false, "id": 22142573 },
+        { "content": "furosemide", "isCorrect": false, "id": 89257559 }
+      ]
+    },
+    {
+      "content": "Praesent lectus.",
+      "isMutiple": false,
+      "answer": [
+        { "content": "Diazepam", "isCorrect": true, "id": 23283982 },
+        {
+          "content": "DILTIAZEM HYDROCHLORIDE",
+          "isCorrect": false,
+          "id": 36249715
+        },
+        {
+          "content": "Berberis vulgaris, Echinacea angustifolia, Coccus cacti, Kali muriaticum, Lycopodium clavatum, Nitricum acidum,",
+          "isCorrect": true,
+          "id": 51995778
+        },
+        { "content": "diazepam", "isCorrect": true, "id": 87993040 }
+      ]
+    },
+    {
+      "content": "Nulla facilisi.",
+      "isMutiple": true,
+      "answer": [
+        { "content": "Acetaminophen", "isCorrect": false, "id": 30681405 },
+        {
+          "content": "Nicotine Polacrilex",
+          "isCorrect": true,
+          "id": 92513321
+        },
+        { "content": "Aspergillus niger", "isCorrect": true, "id": 47779735 },
+        {
+          "content": "Diclofenac Sodium and Misoprostol",
+          "isCorrect": false,
+          "id": 58103232
+        }
+      ]
+    },
+    {
+      "content": "Suspendisse potenti.",
+      "isMutiple": false,
+      "answer": [
+        {
+          "content": "Adenosinum cyclophosphoricum, Adrenalinum, Adrenocorticotrophin, Allium cepa, Ambrosia artemisiaefolia, Chelidonium majus, Chenopodium vulvaria, Cichorium intybus, Cortisone aceticum, Euphrasia officinalis, Galphimia glauca, Hereda helix, Histaminum hydrochloricum, Junglans cinerea, Kali muriaticum, Mucosa nasalis suis, Natrum muriaticum, Pulsatilla nuttalliana, RNA, Sabadilla, Teucrium scorodonia",
+          "isCorrect": true,
+          "id": 32650251
+        },
+        {
+          "content": "Octinoxate and Oxybenzone",
+          "isCorrect": true,
+          "id": 479419
+        },
+        {
+          "content": "bacitracin zinc neomycin sulfate polymyxin b sulfate",
+          "isCorrect": false,
+          "id": 57465432
+        },
+        { "content": "piroxicam", "isCorrect": true, "id": 56833559 }
+      ]
+    },
+    {
+      "content": "In quis justo.",
+      "isMutiple": false,
+      "answer": [
+        { "content": "CHLOROXYLENOL", "isCorrect": false, "id": 58379704 },
+        {
+          "content": "Acetaminophen,Phenylephrine HCl, Chlorpheniramine maleate",
+          "isCorrect": false,
+          "id": 18693268
+        },
+        {
+          "content": "Acetaminophen, Dextromethorphan HBr, Phenylephrine HCl",
+          "isCorrect": true,
+          "id": 60860386
+        },
+        { "content": "lamivudine", "isCorrect": true, "id": 22844200 }
+      ]
+    },
+    {
+      "content": "Integer ac neque.",
+      "isMutiple": false,
+      "answer": [
+        {
+          "content": "Potassium Chloride",
+          "isCorrect": true,
+          "id": 90525665
+        },
+        {
+          "content": "octinoxate, octisalate, zinc oxide, oxybenzone,",
+          "isCorrect": false,
+          "id": 83989559
+        },
+        { "content": "exenatide", "isCorrect": false, "id": 89649043 },
+        { "content": "ulipristal acetate", "isCorrect": true, "id": 34949931 }
+      ]
+    },
+    {
+      "content": "Quisque id justo sit amet sapien dignissim vestibulum.",
+      "isMutiple": true,
+      "answer": [
+        { "content": "Mineral Oil", "isCorrect": false, "id": 67475598 },
+        {
+          "content": "Titanium Dioxide and Zinc Oxide",
+          "isCorrect": false,
+          "id": 1878108
+        },
+        { "content": "olanzapine", "isCorrect": true, "id": 9778458 },
+        { "content": "spironolactone", "isCorrect": false, "id": 31557497 }
+      ]
+    }
+  ]
+}

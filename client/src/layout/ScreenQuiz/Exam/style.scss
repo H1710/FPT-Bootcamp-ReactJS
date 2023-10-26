@@ -1,0 +1,18 @@
+.exam-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  h1 {
+    color: #333;
+    font-size: 24px;
+  }
+
+  p {
+    color: #333;
+  }
+
+  form {
+    width: 100%;
+  }
+}
