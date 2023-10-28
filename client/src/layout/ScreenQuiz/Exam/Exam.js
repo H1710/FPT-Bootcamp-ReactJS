@@ -3,24 +3,37 @@ import "../Exam/style.scss";
 import Card from "../../../component/Card/Card";
 import Countdown from "../../../component/Countdown/Countdown";
 import CustomButton from "../../../component/Button/CustomButton";
+import Dialog from "../../../component/Dialog/Dialog";
+import LoadingPage from "../../../component/LoadingPage/LoadingPage";
+import ListNumber from "../../../component/ListNumber/ListNumber";
 
-const Exam = ({ handleSubmit, quiz, back }) => {
-  const initialTime = 60;
-  const [timeRemaining, setTimeRemaining] = useState(initialTime);
+const Exam = ({ formData, setFormData, handleSubmit, lsQuiz, back }) => {
+  const [timeRemaining, setTimeRemaining] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [isOpenDialog, setOpenDialog] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  useEffect(() => {
-    const initTime = localStorage.getItem("quiz-time");
-    if (!initTime) {
-      localStorage.setItem("quiz-time", Date.now());
-      setTimeRemaining(20 * 60);
-    } else {
-      setTimeRemaining(20 * 60 - Math.floor((Date.now() - initTime) / 1000));
-    }
-  }, []);
-
+  useEffect(
+    () => async () => {
+      const timeRemaining = await import("../../../utils/TimeManagement").then(
+        (n) => {
+          return n.getTimeRemaining(20);
+        }
+      );
+      setTimeRemaining(timeRemaining);
+    },
+    []
+  );
+  const handleSubmitForm = async () => {
+    setOpenDialog(false);
+    setLoading(true);
+    await handleSubmit(formData);
+    setLoading(false);
+  };
   useEffect(() => {
     if (timeRemaining <= 0) {
-      return; // Timer has reached 0, no need to continue
+      handleSubmitForm();
+      return;
     }
 
     const intervalId = setInterval(() => {
@@ -32,60 +45,112 @@ const Exam = ({ handleSubmit, quiz, back }) => {
     };
   }, [timeRemaining]);
 
-  const { lsQuizz } = quiz;
-
-  const [formData, setFormData] = useState(() => {
-    return (
-      JSON.parse(localStorage.getItem("formData")) ||
-      lsQuizz.reduce((accumulator, value) => {
-        return { ...accumulator, [value._id]: "" };
-      }, {})
-    );
-  });
-  const handleAnswer = (questionId, value) => {
-    setFormData({
-      ...formData,
-      [questionId]: value,
+  const handleAnswer = async (question, value) => {
+    let answer = formData;
+    answer = await import("../../../utils/AnswerManagement").then((n) => {
+      if (question.isMultiple) {
+        return n.handleMultipleChoiceSelection(formData, question._id, value);
+      } else {
+        return n.handleSingleChoiceSelection(formData, question._id, value);
+      }
     });
-    localStorage.setItem(
-      "formData",
-      JSON.stringify({ ...formData, [questionId]: value })
-    );
+
+    setFormData(() => answer);
+    localStorage.setItem("formData", JSON.stringify({ ...answer }));
+  };
+
+  const openDialog = () => {
+    setOpenDialog(true);
+  };
+
+  const closeDialog = () => {
+    setOpenDialog(false);
   };
 
   return (
     <>
       <div className="exam-container">
-        <h1>Let's start</h1>
-        <p>Better with limit time in 20 minutes</p>
-        <form>
-          {lsQuizz &&
-            lsQuizz.map((val, id) => (
-              <Card
-                handleAnswer={handleAnswer}
-                question={val}
-                key={id}
-                userAnswer={formData[val._id]}
-              />
-            ))}
+        <ListNumber
+          lsQuiz={lsQuiz}
+          formData={formData}
+          currentQuestion={currentQuestion}
+          setCurrentQuestion={setCurrentQuestion}
+        />
 
-          <div className="btn-container">
-            <CustomButton
-              handleSubmit={back}
-              classContent={"md primary"}
-              text={"Previous"}
-              isLoading={false}
-            />
-            <CustomButton
-              // handleSubmit={start}
-              classContent={"md primary"}
-              text={"Submit"}
-              isLoading={false}
-            />
-          </div>
-        </form>
+        {lsQuiz && (
+          <Card
+            handleAnswer={handleAnswer}
+            question={lsQuiz[currentQuestion]}
+            key={lsQuiz[currentQuestion]._id}
+            userAnswer={formData[lsQuiz[currentQuestion]._id]}
+          />
+        )}
+
+        <div className="icon-container">
+          <button
+            disabled={currentQuestion <= 0}
+            onClick={() => setCurrentQuestion((prev) => prev - 1)}
+            className={`prev-btn ${currentQuestion <= 0 && "disabled"}`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+          </button>
+
+          <span>
+            {currentQuestion + 1} / {lsQuiz.length}
+          </span>
+          <button
+            className={`next-btn ${
+              currentQuestion >= lsQuiz.length - 1 && "disabled"
+            }`}
+            disabled={currentQuestion >= lsQuiz.length - 1}
+            onClick={() => setCurrentQuestion((prev) => prev + 1)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div className="btn-container">
+          <CustomButton
+            handleSubmit={back}
+            classContent={"md secondary"}
+            text={"Previous"}
+          />
+          <CustomButton
+            handleSubmit={openDialog}
+            classContent={"md primary"}
+            text={"Submit"}
+          />
+        </div>
       </div>
       <Countdown time={timeRemaining} />
+      {isOpenDialog && (
+        <Dialog handleClose={closeDialog} handleConfirm={handleSubmitForm} />
+      )}
+      {loading && <LoadingPage />}
     </>
   );
 };

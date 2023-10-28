@@ -1,8 +1,10 @@
+@import "../../../const/color";
+
 .exam-container {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   h1 {
     color: #333;
     font-size: 24px;
@@ -14,5 +16,55 @@
 
   form {
     width: 100%;
+  }
+
+  .btn-container {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    margin-top: 2px;
+  }
+
+  .icon-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+    .prev-btn,
+    .next-btn {
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      border: 1px solid #ccc;
+      color: black;
+      cursor: pointer;
+      &:hover {
+        background-color: #e8e8e8;
+      }
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .disabled {
+      color: #ecedef;
+      border: 1px solid #ecedef;
+      cursor: context-menu;
+
+      &:hover {
+        background-color: white;
+      }
+    }
+
+    span {
+      margin-bottom: 2px;
+    }
   }
 }

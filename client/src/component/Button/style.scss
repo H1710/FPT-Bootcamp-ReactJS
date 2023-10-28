@@ -19,12 +19,23 @@ button {
   }
 }
 
+.secondary {
+  background-color: $button-secondary;
+  &:hover {
+    background-color: $button-secondary-hover;
+  }
+}
+
 .loading {
   cursor: context-menu;
   background-color: $button-primary-loading;
   &:hover {
     background-color: $button-primary-loading;
   }
+}
+
+.full {
+  width: 100%;
 }
 
 .sm {

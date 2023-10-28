@@ -1,8 +1,9 @@
-.welcome-container {
+.result-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 10px;
   h1 {
     color: #333;
     font-size: 24px;
@@ -12,13 +13,13 @@
     color: #666;
   }
 
-  .welcome-form {
+  .result-form {
     width: 100%;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
 
-    .welcome-input {
+    .result-input {
       width: 100%;
       display: flex;
       flex-direction: column;

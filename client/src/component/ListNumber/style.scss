@@ -1,0 +1,29 @@
+.list-number-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  .number-container {
+    // background-color: red;
+    width: 34px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    &:hover {
+      background-color: #f1f0f0;
+    }
+  }
+
+  .current {
+    background-color: #f1f0f0;
+  }
+
+  .answered {
+    background-color: #d4cfbc;
+  }
+}

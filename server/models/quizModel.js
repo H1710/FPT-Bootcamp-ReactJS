@@ -11,7 +11,7 @@ const quizSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  lsQuizz: [
+  lsQuiz: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Question",
