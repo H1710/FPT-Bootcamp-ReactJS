@@ -5,7 +5,7 @@ export const getResult = (quizzCode, formData) => {
     setTimeout(() => {
       fetch(
         `${
-          process.env.SERVER_DOMAIN ?? SERVER_DOMAIN
+          process.env.REACT_APP_SERVER_DOMAIN ?? SERVER_DOMAIN
         }/api/quiz/result/${quizzCode}`,
         {
           method: "POST",
