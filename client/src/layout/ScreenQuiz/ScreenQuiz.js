@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect, useState } from "react";
+import React, { Suspense, lazy, useCallback, useEffect, useState } from "react";
 import "./screenQuiz.scss";
 import { useLocation, useNavigate } from "react-router-dom";
 import LoadingPage from "../../component/LoadingPage/LoadingPage";
@@ -26,6 +26,7 @@ const ScreenQuiz = () => {
       }, {})
     );
   });
+
   const [result, setResult] = useState("");
   const start = (name, email) => {
     localStorage.setItem("user", JSON.stringify({ name: name, email: email }));
@@ -35,14 +36,20 @@ const ScreenQuiz = () => {
     setStateQuiz("welcome");
   };
 
-  const submitQuiz = async () => {
-    const data = await import("./QuizService").then((n) => {
-      return n.getResult(state?.quiz.quizCode, formData);
-    });
-    setResult(`${data.score}/${state?.quiz.lsQuiz.length}`);
-    localStorage.clear();
-    setStateQuiz("result");
-  };
+  const submitQuiz = useCallback(async () => {
+    try {
+      const data = await import("./QuizService").then((n) => {
+        return n.getResult(state?.quiz.quizCode, formData);
+      });
+      localStorage.clear();
+      setResult(`${data.score}/${state?.quiz.lsQuiz.length}`);
+      setStateQuiz("result");
+    } catch (error) {
+      navigate(`/error/500`, {
+        state: { errorMessage: "An error occurred." },
+      });
+    }
+  }, [formData]);
 
   const Welcome = lazy(() => import("./Welcome/Welcome"));
   const Result = lazy(() => import("./Result/Result"));

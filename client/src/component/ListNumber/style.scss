@@ -1,10 +1,10 @@
+@import "../../const/color";
 .list-number-container {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 
   .number-container {
-    // background-color: red;
     width: 34px;
     height: 30px;
     display: flex;
@@ -12,18 +12,24 @@
     justify-content: center;
     border-radius: 4px;
     font-size: 14px;
-    border: 1px solid #ccc;
+    color: $primary-text;
+    border: 1px solid $question-border;
+    background: $question-background;
     cursor: pointer;
     &:hover {
-      background-color: #f1f0f0;
+      background-color: $question-hover;
     }
   }
 
   .current {
-    background-color: #f1f0f0;
+    background-color: $question-selected;
   }
 
   .answered {
-    background-color: #d4cfbc;
+    background-color: $question-answered;
+
+    &:hover {
+      background-color: $question-answered;
+    }
   }
 }

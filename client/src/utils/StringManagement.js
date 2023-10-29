@@ -1,28 +1,23 @@
 /**
- * Day la function kiem tra chu viet hoa
- * @param text : string - day la chuoi can kiem tra
+ * This is a function that returns a random string fixed number of characters alphabet or number
+ * @param length : Number - Length of random string
  * @example
- * IsUpperCase("ABCDE")
+ * generateRandomString(10) : output(atAHGk12s2)
  * @description
- * Dieu kien tien quyet text khong duoc null|undefined
- * @returns boolean - True: Chu viet hoa / False : Chu viet thuong
- * @author QhH
+ * Condition: length is not null or undefined and at least 1 character
+ * @returns string: random string
+ * @author QuachHoangHuy
  * @version 1.0.0.0
  */
-
-// [PhienBan][Subchange][Delivery][fixBug]
-export const IsUpperCase = () => {
-  return true;
-};
-
 export const generateRandomString = (length) => {
   const charset =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let randomString = "";
-
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * charset.length);
-    randomString += charset[randomIndex];
+  if (length) {
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      randomString += charset[randomIndex];
+    }
   }
 
   return randomString;

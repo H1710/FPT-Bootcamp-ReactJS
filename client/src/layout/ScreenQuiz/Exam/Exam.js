@@ -8,22 +8,23 @@ import LoadingPage from "../../../component/LoadingPage/LoadingPage";
 import ListNumber from "../../../component/ListNumber/ListNumber";
 
 const Exam = ({ formData, setFormData, handleSubmit, lsQuiz, back }) => {
-  const [timeRemaining, setTimeRemaining] = useState(1);
+  const quizTime = 5;
+  const [timeRemaining, setTimeRemaining] = useState(quizTime);
   const [loading, setLoading] = useState(false);
   const [isOpenDialog, setOpenDialog] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  useEffect(
-    () => async () => {
+  useEffect(() => {
+    const handleTime = async () => {
       const timeRemaining = await import("../../../utils/TimeManagement").then(
         (n) => {
-          return n.getTimeRemaining(20);
+          return n.getTimeRemaining(quizTime);
         }
       );
       setTimeRemaining(timeRemaining);
-    },
-    []
-  );
+    };
+    handleTime();
+  }, []);
   const handleSubmitForm = async () => {
     setOpenDialog(false);
     setLoading(true);
@@ -66,7 +67,6 @@ const Exam = ({ formData, setFormData, handleSubmit, lsQuiz, back }) => {
   const closeDialog = () => {
     setOpenDialog(false);
   };
-
   return (
     <>
       <div className="exam-container">

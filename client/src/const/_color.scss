@@ -1,9 +1,33 @@
+$background-primary: #f0eee6;
+
 $button-primary: rgb(86, 69, 161);
 $button-primary-hover: rgb(62, 45, 98);
 $button-primary-loading: rgb(129, 111, 205);
+$button-primary-text: white;
 
-$button-secondary: #6c757d;
-$button-secondary-hover: #60676d;
+$button-secondary: white;
+$button-secondary-hover: #f1f0f0;
+$button-secondary-border: #ccc;
+$button-secondary-text: black;
 
-$input-primary: #ccc;
-$input-forcus: black;
+$button-disabled: white;
+$button-disabled-border: #ecedef;
+$button-disabled-text: #ecedef;
+
+$question-background: white;
+$question-hover: #f1f0f0;
+$question-border: #ccc;
+$question-selected: #f1f0f0;
+$question-answered: #e6e2d6;
+
+$input-primary: white;
+$input-border: #e8e7e2;
+$input-forcus: #efeeec;
+$input-text: #888;
+
+$loading-circle: #e6e2d6;
+$loading-loader: #d4cfbc;
+$loading-background: rgba(255, 255, 255, 0.4);
+
+$primary-text: #282828;
+$primary-title: #333;

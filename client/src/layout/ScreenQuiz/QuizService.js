@@ -3,13 +3,18 @@ import { SERVER_DOMAIN } from "../../const/domain";
 export const getResult = (quizzCode, formData) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      fetch(`${SERVER_DOMAIN}/api/quiz/result/${quizzCode}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ formData: formData }),
-      })
+      fetch(
+        `${
+          process.env.SERVER_DOMAIN ?? SERVER_DOMAIN
+        }/api/quiz/result/${quizzCode}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ formData: formData }),
+        }
+      )
         .then((response) => {
           if (!response.ok) {
             throw new Error("");

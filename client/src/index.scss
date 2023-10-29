@@ -1,3 +1,5 @@
+@import "../src/const/_color.scss";
+
 * {
   padding: 0;
   box-sizing: border-box;
@@ -10,7 +12,7 @@
 }
 
 body {
-  background-color: #f0eee6;
+  background-color: $background-primary;
   display: flex;
   justify-content: center;
   align-items: center;

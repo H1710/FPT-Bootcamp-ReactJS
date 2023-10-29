@@ -14,7 +14,11 @@ const ListNumber = ({
           key={index}
           className={`number-container ${
             currentQuestion === index && "current"
-          } ${formData[question._id] && "answered"}`}
+          } ${
+            formData[question._id] &&
+            formData[question._id].length &&
+            "answered"
+          }`}
           onClick={() => setCurrentQuestion(index)}
         >
           {index + 1}

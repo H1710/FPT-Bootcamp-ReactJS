@@ -36,12 +36,12 @@
     .next-btn {
       width: 40px;
       height: 40px;
-      background-color: white;
-      border: 1px solid #ccc;
+      background-color: $button-secondary;
+      border: 1px solid $button-secondary-border;
       color: black;
       cursor: pointer;
       &:hover {
-        background-color: #e8e8e8;
+        background-color: $button-secondary-hover;
       }
       border-radius: 8px;
       display: flex;
@@ -54,12 +54,12 @@
     }
 
     .disabled {
-      color: #ecedef;
-      border: 1px solid #ecedef;
+      color: $button-disabled-text;
+      border: 1px solid $button-disabled-border;
       cursor: context-menu;
 
       &:hover {
-        background-color: white;
+        background-color: transparent;
       }
     }
 

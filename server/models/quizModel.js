@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const quizSchema = new mongoose.Schema({
   quizCode: {
-    type: Number,
+    type: String,
     required: true,
   },
   title: {

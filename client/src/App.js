@@ -6,6 +6,8 @@ import LoadingPage from "./component/LoadingPage/LoadingPage";
 function App() {
   const ScreenHome = lazy(() => import("./layout/ScreenHome/ScreenHome"));
   const ScreenQuiz = lazy(() => import("./layout/ScreenQuiz/ScreenQuiz"));
+  const NotFound = lazy(() => import("./component/NotFound/NotFound"));
+  const ErrorPage = lazy(() => import("./component/ErrorPage/ErrorPage"));
   return (
     <div className="App">
       <BrowserRouter>
@@ -26,6 +28,15 @@ function App() {
               </Suspense>
             }
           />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <NotFound />
+              </Suspense>
+            }
+          />
+          <Route path="/error/:errorCode" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </div>

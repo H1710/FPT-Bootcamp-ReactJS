@@ -12,28 +12,40 @@ const ScreenHome = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const quizzcode = inputRef.current.getValue();
-    if (!quizzcode) {
-      setErrorMessage("Quizz code is required");
-      return;
-    }
-    setLoading(true);
-    const data = await import("./HomeService").then((n) => {
-      return n.getQuiz(quizzcode);
-    });
-    if (data.quiz) {
-      const quiz = await import("../../utils/QuizManagement").then((n) => {
-        return n.randomQuiz(data.quiz);
+    try {
+      const quizzcode = inputRef.current.getValue();
+      if (!quizzcode) {
+        setErrorMessage("Quizz code is required");
+        return;
+      }
+      setLoading(true);
+      const data = await import("./HomeService").then((n) => {
+        return n.getQuiz(quizzcode);
       });
-      navigate(`quiz/${quizzcode}`, {
-        state: {
-          quiz: quiz,
-        },
+      if (data.quiz) {
+        const randomQuiz = await import("../../utils/ArrayManagement").then(
+          (n) => {
+            return n.randomArray(data.quiz.lsQuiz);
+          }
+        );
+        const quiz = {
+          ...data.quiz,
+          lsQuiz: randomQuiz,
+        };
+        navigate(`quiz/${quizzcode}`, {
+          state: {
+            quiz: quiz,
+          },
+        });
+      } else {
+        setErrorMessage("Quizz code is not correct");
+      }
+      setLoading(false);
+    } catch (error) {
+      navigate(`/error/500`, {
+        state: { errorMessage: "An error occurred." },
       });
-    } else {
-      setErrorMessage("Quizz code is not correct");
     }
-    setLoading(false);
   };
 
   return (

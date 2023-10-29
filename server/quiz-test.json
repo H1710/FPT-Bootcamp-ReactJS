@@ -1,5 +1,5 @@
 {
-  "quizCode": 13573074,
+  "quizCode": "13573074",
   "title": "Math Quizz",
   "description": "Childrens, You must do this quizz by yourself. Becareful, we have some question with multiple choice in this test.",
   "lsQuiz": [
@@ -77,6 +77,74 @@
         {
           "id": "515fddec-ced3-40ea-b1df-4571db6650eb",
           "content": "2 + 10",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "content": "Can we study JS in 5 minutes?",
+      "isMultiple": false,
+      "answer": [
+        {
+          "id": "8a365e0d-e025-4e63-a21e-e08a0ec8b030",
+          "content": "Yes",
+          "isCorrect": false
+        },
+        {
+          "id": "88152462-524c-49f6-a37b-789c90b7353f",
+          "content": "No !!!!!!!!",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "content": "JS is very easy to learn in 5 minutes, right?",
+      "isMultiple": true,
+      "answer": [
+        {
+          "id": "7d05112f-a36f-42f9-ad91-f2310e062032",
+          "content": "I have no idea",
+          "isCorrect": false
+        },
+        {
+          "id": "f194b54b-f72b-4be8-9812-ac80a54284c6",
+          "content": "Listen and repeat. Nope :)",
+          "isCorrect": true
+        },
+        {
+          "id": "21b799b7-0b52-40fc-8553-f5af7e65626a",
+          "content": "The god can do it :)",
+          "isCorrect": true
+        },
+        {
+          "id": "c1cf4021-cb87-46d4-b235-0602c92ec117",
+          "content": "Let me tell you : 'absolutely not :('",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "content": "ReactJS is ?",
+      "isMultiple": false,
+      "answer": [
+        {
+          "id": "07f2afb0-e380-4d3a-bd4e-8a1140d8237c",
+          "content": "A Library",
+          "isCorrect": true
+        },
+        {
+          "id": "d3ba7075-0000-42f4-88ed-78bd2d781e4b",
+          "content": "A framwork",
+          "isCorrect": false
+        },
+        {
+          "id": "15655677-cb4c-4a9b-930f-6f5533f17d4e",
+          "content": "A supper JS language",
+          "isCorrect": false
+        },
+        {
+          "id": "b57240b9-48d7-40a6-8cf2-90936bedd711",
+          "content": "All above is correct",
           "isCorrect": false
         }
       ]
