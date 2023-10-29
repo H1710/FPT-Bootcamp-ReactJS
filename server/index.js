@@ -25,5 +25,6 @@ const quizRoute = require("./routes/quizRoute");
 app.use("/api", quizRoute);
 
 app.listen(port, () => {
+  console.log("origin " + process.env.CLIENT_URL);
   console.log(`Server started on port ${port}`);
 });
