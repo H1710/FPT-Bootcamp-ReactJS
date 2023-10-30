@@ -1,6 +1,6 @@
 import React from "react";
-import "../ErrorPage/style.scss";
 import { useLocation, useParams } from "react-router-dom";
+import "../ErrorPage/style.scss";
 
 const ErrorPage = () => {
   const { errorCode } = useParams();

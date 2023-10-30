@@ -1,7 +1,7 @@
 import React from "react";
-import "../Result/style.scss";
-import CustomButton from "../../../component/Button/CustomButton";
 import { useNavigate } from "react-router-dom";
+import CustomButton from "../../../component/Button/CustomButton";
+import "../Result/style.scss";
 
 const Result = ({ result }) => {
   const navigate = useNavigate();

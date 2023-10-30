@@ -1,8 +1,8 @@
 import React, { Suspense, lazy, useCallback, useEffect, useState } from "react";
-import "./screenQuiz.scss";
 import { useLocation, useNavigate } from "react-router-dom";
 import LoadingPage from "../../component/LoadingPage/LoadingPage";
 import Exam from "../ScreenQuiz/Exam/Exam";
+import "./screenQuiz.scss";
 
 const ScreenQuiz = () => {
   const [stateQuiz, setStateQuiz] = useState("welcome");

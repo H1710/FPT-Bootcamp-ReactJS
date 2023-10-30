@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import "../ScreenHome/screenHome.scss";
-import CustomButton from "../../component/Button/CustomButton";
 import { useNavigate } from "react-router-dom";
+import CustomButton from "../../component/Button/CustomButton";
 import CustomInput from "../../component/Input/CustomInput";
+import "../ScreenHome/screenHome.scss";
 
 const ScreenHome = () => {
   const inputRef = useRef();
@@ -13,7 +13,7 @@ const ScreenHome = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const quizzcode = inputRef.current.getValue();
+      let quizzcode = inputRef.current.getValue();
       if (!quizzcode) {
         setErrorMessage("Quizz code is required");
         return;
@@ -42,6 +42,7 @@ const ScreenHome = () => {
       }
       setLoading(false);
     } catch (error) {
+      console.log(error);
       navigate(`/error/500`, {
         state: { errorMessage: "An error occurred." },
       });

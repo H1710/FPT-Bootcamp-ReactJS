@@ -2,19 +2,7 @@ import React, { forwardRef, useImperativeHandle, useRef } from "react";
 import "../Input/style.scss";
 
 const CustomInput = forwardRef(
-  (
-    {
-      type,
-      id,
-      name,
-      isRequire,
-      label,
-      errorMessage,
-      placeholder,
-      autoComplete,
-    },
-    ref
-  ) => {
+  ({ type, id, name, label, errorMessage, placeholder, autoComplete }, ref) => {
     const inputRef = useRef(null);
     useImperativeHandle(ref, () => ({
       getValue: () => {

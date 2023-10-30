@@ -1,6 +1,6 @@
 import React from "react";
-import "../Dialog/style.scss";
 import CustomButton from "../Button/CustomButton";
+import "../Dialog/style.scss";
 
 const Dialog = ({ handleClose, handleConfirm }) => {
   return (

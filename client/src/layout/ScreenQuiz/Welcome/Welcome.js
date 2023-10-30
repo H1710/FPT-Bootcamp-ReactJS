@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import "../Welcome/style.scss";
 import CustomButton from "../../../component/Button/CustomButton";
 import CustomInput from "../../../component/Input/CustomInput";
+import "../Welcome/style.scss";
 
 const Welcome = ({ handleSubmit }) => {
   const inputNameRef = useRef("");
@@ -18,7 +18,9 @@ const Welcome = ({ handleSubmit }) => {
     const user = localStorage.getItem("user");
     if (user) {
       const { name, email } = JSON.parse(user);
-      if (name) inputNameRef.current.setValue(name);
+      if (name) {
+        inputNameRef.current.setValue(name);
+      }
       if (email) inputEmailRef.current.setValue(email);
     }
   }, []);
@@ -35,6 +37,7 @@ const Welcome = ({ handleSubmit }) => {
           id={"name"}
           ref={inputNameRef}
         />
+        {/* Yup + React Hook Form */}
 
         <br />
 

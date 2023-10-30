@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import "../Exam/style.scss";
+import React, { useCallback, useEffect, useState } from "react";
 import Card from "../../../component/Card/Card";
 import Countdown from "../../../component/Countdown/Countdown";
 import CustomButton from "../../../component/Button/CustomButton";
 import Dialog from "../../../component/Dialog/Dialog";
 import LoadingPage from "../../../component/LoadingPage/LoadingPage";
 import ListNumber from "../../../component/ListNumber/ListNumber";
+import "../Exam/style.scss";
 
 const Exam = ({ formData, setFormData, handleSubmit, lsQuiz, back }) => {
   const quizTime = 5;
@@ -60,13 +60,13 @@ const Exam = ({ formData, setFormData, handleSubmit, lsQuiz, back }) => {
     localStorage.setItem("formData", JSON.stringify({ ...answer }));
   };
 
-  const openDialog = () => {
+  const openDialog = useCallback(() => {
     setOpenDialog(true);
-  };
+  }, []);
 
-  const closeDialog = () => {
+  const closeDialog = useCallback(() => {
     setOpenDialog(false);
-  };
+  }, []);
   return (
     <>
       <div className="exam-container">

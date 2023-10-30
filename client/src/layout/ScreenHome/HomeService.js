@@ -1,13 +1,13 @@
 import { SERVER_DOMAIN } from "../../const/domain";
 
 export const getQuiz = (quizzCode) => {
+  console.log(process.env.REACT_APP_SERVER_DOMAIN);
+  const url = `${
+    process.env.REACT_APP_SERVER_DOMAIN ?? SERVER_DOMAIN
+  }/api/quiz/get/${quizzCode}`;
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      fetch(
-        `${
-          process.env.REACT_APP_SERVER_DOMAIN ?? SERVER_DOMAIN
-        }/api/quiz/get/${quizzCode}`
-      )
+    setTimeout(async () => {
+      await fetch(url)
         .then((response) => {
           if (!response.ok) {
             throw new Error("");
@@ -15,6 +15,7 @@ export const getQuiz = (quizzCode) => {
           return response.json();
         })
         .then((data) => {
+          console.log(data);
           resolve(data);
         })
         .catch((error) => {
