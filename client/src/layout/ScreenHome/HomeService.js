@@ -1,7 +1,6 @@
 import { SERVER_DOMAIN } from "../../const/domain";
 
 export const getQuiz = (quizzCode) => {
-  console.log(process.env.REACT_APP_SERVER_DOMAIN);
   const url = `${
     process.env.REACT_APP_SERVER_DOMAIN ?? SERVER_DOMAIN
   }/api/quiz/get/${quizzCode}`;

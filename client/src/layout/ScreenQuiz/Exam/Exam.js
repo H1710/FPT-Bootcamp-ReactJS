@@ -46,6 +46,19 @@ const Exam = ({ formData, setFormData, handleSubmit, lsQuiz, back }) => {
     };
   }, [timeRemaining]);
 
+  const clearChoice = useCallback((question) => {
+    setFormData((prev) => {
+      const newFormData = { ...prev };
+      if (question.isMultiple) {
+        newFormData[question._id] = [];
+      } else {
+        newFormData[question._id] = "";
+      }
+      localStorage.setItem("formData", JSON.stringify(newFormData));
+      return newFormData;
+    });
+  }, []);
+
   const handleAnswer = async (question, value) => {
     let answer = formData;
     answer = await import("../../../utils/AnswerManagement").then((n) => {
@@ -59,7 +72,6 @@ const Exam = ({ formData, setFormData, handleSubmit, lsQuiz, back }) => {
     setFormData(() => answer);
     localStorage.setItem("formData", JSON.stringify({ ...answer }));
   };
-
   const openDialog = useCallback(() => {
     setOpenDialog(true);
   }, []);
@@ -83,6 +95,7 @@ const Exam = ({ formData, setFormData, handleSubmit, lsQuiz, back }) => {
             question={lsQuiz[currentQuestion]}
             key={lsQuiz[currentQuestion]._id}
             userAnswer={formData[lsQuiz[currentQuestion]._id]}
+            clearChoice={clearChoice}
           />
         )}
 

@@ -1,7 +1,7 @@
 import React from "react";
 import "../Card/style.scss";
 
-const Card = ({ handleAnswer, question, userAnswer }) => {
+const Card = ({ handleAnswer, question, userAnswer, clearChoice }) => {
   return (
     <div className="card">
       <p>{question.content}</p>
@@ -30,6 +30,9 @@ const Card = ({ handleAnswer, question, userAnswer }) => {
             <p>{val.content}</p>
           </label>
         ))}
+      <p className="clear-choice" onClick={() => clearChoice(question)}>
+        Clear choice
+      </p>
     </div>
   );
 };

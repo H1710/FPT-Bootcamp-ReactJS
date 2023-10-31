@@ -42,4 +42,12 @@
       text-align: left;
     }
   }
+
+  .clear-choice {
+    color: rgb(0, 153, 255);
+    &:hover {
+      color: rgb(76, 183, 253);
+      cursor: pointer;
+    }
+  }
 }
