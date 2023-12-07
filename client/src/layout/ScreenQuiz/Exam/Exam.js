@@ -7,9 +7,8 @@ import LoadingPage from "../../../component/LoadingPage/LoadingPage";
 import ListNumber from "../../../component/ListNumber/ListNumber";
 import "../Exam/style.scss";
 
-const Exam = ({ formData, setFormData, handleSubmit, lsQuiz, back }) => {
-  const quizTime = 5;
-  const [timeRemaining, setTimeRemaining] = useState(quizTime);
+const Exam = ({ formData, setFormData, handleSubmit, lsQuiz, time, back }) => {
+  const [timeRemaining, setTimeRemaining] = useState(time);
   const [loading, setLoading] = useState(false);
   const [isOpenDialog, setOpenDialog] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -18,7 +17,7 @@ const Exam = ({ formData, setFormData, handleSubmit, lsQuiz, back }) => {
     const handleTime = async () => {
       const timeRemaining = await import("../../../utils/TimeManagement").then(
         (n) => {
-          return n.getTimeRemaining(quizTime);
+          return n.getTimeRemaining(time);
         }
       );
       setTimeRemaining(timeRemaining);

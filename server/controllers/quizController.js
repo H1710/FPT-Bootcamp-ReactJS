@@ -10,6 +10,7 @@ class QuizController {
         quizCode: quizData.quizCode,
         title: quizData.title,
         description: quizData.description,
+        time: quizData.time,
       });
 
       for (const val of quizData.lsQuiz) {
@@ -23,7 +24,7 @@ class QuizController {
       await quiz.save();
 
       //   console.log(quiz);
-      return res.status(200).send({ quiz: quiz });
+      return res.status(200).send({ quiz: quiz, message: "Success" });
     } catch (err) {
       return res.status(500).json({ message: err.message });
     }

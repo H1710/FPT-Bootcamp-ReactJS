@@ -8,6 +8,8 @@ function App() {
   const ScreenQuiz = lazy(() => import("./layout/ScreenQuiz/ScreenQuiz"));
   const NotFound = lazy(() => import("./component/NotFound/NotFound"));
   const ErrorPage = lazy(() => import("./component/ErrorPage/ErrorPage"));
+  const ScreenCreate = lazy(() => import("./layout/ScreenCreate/ScreenCreate"));
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -25,6 +27,14 @@ function App() {
             element={
               <Suspense fallback={<LoadingPage />}>
                 <ScreenQuiz />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/quiz/create"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <ScreenCreate />
               </Suspense>
             }
           />

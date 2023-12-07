@@ -2,6 +2,7 @@ import React from "react";
 import "../Card/style.scss";
 
 const Card = ({ handleAnswer, question, userAnswer, clearChoice }) => {
+  console.log(userAnswer);
   return (
     <div className="card">
       <p>{question.content}</p>
@@ -23,7 +24,7 @@ const Card = ({ handleAnswer, question, userAnswer, clearChoice }) => {
                 id={val.id}
                 name={question._id}
                 value={val.content}
-                checked={userAnswer === val.id}
+                checked={userAnswer == val.id}
                 onChange={() => handleAnswer(question, val.id)}
               />
             )}{" "}

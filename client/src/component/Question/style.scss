@@ -1,0 +1,63 @@
+@import "../../const/color";
+.question-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  .content-input {
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid $input-border;
+    border-radius: 4px;
+    color: $primary-text;
+    &:focus {
+      border: 1px solid $input-forcus;
+      outline: none;
+    }
+  }
+
+  .answer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .answer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      input[type="text"] {
+        // width: calc(100% - 50px);
+
+        flex: 1;
+        height: 40px;
+        font-size: 14px;
+        padding: 8px;
+        background-color: white;
+        border: 1px solid $input-border;
+        border-radius: 4px;
+        color: $primary-text;
+        &:focus {
+          border: 1px solid $input-forcus;
+          outline: none;
+        }
+      }
+
+      .delete-icon {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        svg {
+          width: 18px;
+          color: red;
+        }
+
+        &:hover {
+          color: rgb(230, 9, 9);
+        }
+      }
+    }
+  }
+}

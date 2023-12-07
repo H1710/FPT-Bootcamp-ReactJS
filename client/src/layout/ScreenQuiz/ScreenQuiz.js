@@ -70,6 +70,7 @@ const ScreenQuiz = () => {
               setFormData={setFormData}
               handleSubmit={submitQuiz}
               lsQuiz={state?.quiz.lsQuiz}
+              time={state?.quiz.time}
               back={back}
             />
           </div>

@@ -29,6 +29,14 @@ button {
   }
 }
 
+.danger {
+  background-color: $button-danger;
+  color: $button-danger-text;
+  &:hover {
+    background-color: $button-danger-hover;
+  }
+}
+
 .loading {
   cursor: context-menu;
   background-color: $button-primary-loading;

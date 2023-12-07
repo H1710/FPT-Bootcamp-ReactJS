@@ -11,6 +11,10 @@ const quizSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  time: {
+    type: Number,
+    min: 1,
+  },
   lsQuiz: [
     {
       type: mongoose.Schema.Types.ObjectId,

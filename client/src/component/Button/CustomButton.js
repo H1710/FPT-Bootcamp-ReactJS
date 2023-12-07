@@ -5,7 +5,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 const CustomButton = ({
   text,
   size,
-  isSuccess,
+  type,
+  color,
   classContent,
   handleSubmit,
   isLoading,
@@ -15,6 +16,7 @@ const CustomButton = ({
       onClick={handleSubmit}
       className={`${classContent} ${size} ${isLoading && " loading"}`}
       disabled={isLoading}
+      type={type}
     >
       {isLoading ? (
         <>

@@ -28,6 +28,11 @@ const ScreenHome = () => {
             return n.randomArray(data.quiz.lsQuiz);
           }
         );
+        const quizCodeLocal = localStorage.getItem("quizcode");
+        if (quizCodeLocal !== quizzcode) {
+          localStorage.clear();
+        }
+        localStorage.setItem("quizcode", quizzcode);
         const quiz = {
           ...data.quiz,
           lsQuiz: randomQuiz,
@@ -50,27 +55,30 @@ const ScreenHome = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="container-home">
-      <CustomInput
-        type={"text"}
-        id={"quizzCode"}
-        name={"quizzCode"}
-        placeholder={"Quizz Code"}
-        ref={inputRef}
-        autoComplete={"off"}
-        isRequire={true}
-        errorMessage={errorMessage}
-      />
+    <div className="container-home">
+      <form onSubmit={handleSubmit}>
+        <CustomInput
+          type={"text"}
+          id={"quizzCode"}
+          name={"quizzCode"}
+          placeholder={"Quizz Code"}
+          ref={inputRef}
+          autoComplete={"off"}
+          isRequire={true}
+          errorMessage={errorMessage}
+        />
 
-      <CustomButton
-        type="submit"
-        // handleSubmit={handleSubmit}
-        text={"Submit"}
-        classContent={"primary"}
-        size={"full md"}
-        isLoading={loading}
-      />
-    </form>
+        <CustomButton
+          type="submit"
+          // handleSubmit={handleSubmit}
+          text={"Submit"}
+          classContent={"primary"}
+          size={"full md"}
+          isLoading={loading}
+        />
+      </form>
+      <span onClick={() => navigate("quiz/create")}>Create quiz?</span>
+    </div>
   );
 };
 

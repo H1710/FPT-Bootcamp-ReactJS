@@ -11,6 +11,10 @@ const CustomInput = forwardRef(
       setValue: (value) => {
         inputRef.current.value = value;
       },
+      getFile: (value) => {
+        console.log(value);
+        inputRef.current.files[0] = value;
+      },
     }));
     return (
       <div className="input-container">
@@ -22,6 +26,7 @@ const CustomInput = forwardRef(
           id={id}
           name={name}
           autoComplete={autoComplete}
+          min={1}
           required
         />
         <span>{errorMessage}</span>
